@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <a href="/"
+      ><img src="./assets/svgviewer-output (1).svg" alt="Logo" class="logo"
+    /></a>
+    <a href="/"><span class="brand-name">Prisma Loader</span></a>
+  </div>
+  <div class="navbar-center">
+    <a href="/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+  </div>
+  <div class="navbar-right">
+    <% if (user) { %>
+    <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a> <% } else {
+    %> <a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+    <a href="/signup"><i class="fas fa-user"></i> Signup</a> <% } %>
+  </div>
+</nav>
