@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins" Arial, sans-serif;
+}
+body > *:not(.navbar) {
+  padding-top: 60px; /* Adjust based on navbar height */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed; /* Make the navbar fixed */
+  top: 0; /* Position it at the top */
+  width: 100%; /* Make the navbar full width */
+  z-index: 1000;
+  background-color: #001f3f;
+  color: #fff;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.navbar-left a {
+  text-decoration: none;
+}
+
+.navbar-right a i,
+.navbar-center a i {
+  margin-right: 5px; /* Add some space between the icon and the text */
+  font-size: 23px;
+}
+
+.brand-name {
+  font-size: 25px;
+  font-weight: bold;
+  color: skyblue;
+}
+
+.navbar-center a,
+.navbar-right a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.navbar-center a:hover,
+.navbar-right a:hover {
+  text-decoration: none;
+  color: skyblue;
+}
+
+/* NAVBAR STYLES ABOVE */
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #001f3f;
+  color: #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+.footer-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.footer-brand-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+.footer-center {
+  text-align: center;
+  flex: 1;
+}
+.footer-right a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.footer-right a i {
+  margin-right: 5px;
+}
