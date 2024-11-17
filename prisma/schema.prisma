@@ -19,3 +19,34 @@ model Session {
   data      String
   expiresAt DateTime
 }
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  username  String   @unique // as email
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  folders   Folder[] @relation("userFolders")
+}
+
+model Folder {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  user      User     @relation(name: "userFolders", fields: [userId], references: [id])
+  userId    String
+  files     File[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model File {
+  id        String   @id @default(uuid())
+  name      String?
+  url       String   @unique
+  filesize  Int
+  folderId  String
+  folder    Folder   @relation(fields: [folderId], references: [id])
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+}
