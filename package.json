@@ -4,7 +4,7 @@
   "description": "File Uploader powered by Prisma ORM and Express (node.js)",
   "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --watch server.js"
   },
   "keywords": [],
   "author": "",
