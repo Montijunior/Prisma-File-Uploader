@@ -6,6 +6,7 @@ const express = require("express");
 const expressSession = require("express-session");
 const { PrismaSessionStore } = require("@quixo3/prisma-session-store");
 const { PrismaClient } = require("@prisma/client");
+const IndexRoutes = require("./routes/IndexRoutes");
 const cors = require("cors");
 const app = express();
 
@@ -28,6 +29,9 @@ app.use(
 );
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+
+// app routes
+app.use("/", IndexRoutes);
 
 app.listen(3000, () => {
   console.log("Server running on port", process.env.PORT);
