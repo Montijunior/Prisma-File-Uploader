@@ -2,18 +2,19 @@ const authController = require("../controllers/AuthController");
 const { Router } = require("express");
 const authRouter = Router();
 
-// GET signup form
+// Route to display the signup form
 authRouter.get("/signup", authController.get_sign_up_form);
-// POST signup form
+
+// Route to handle signup form submission
 authRouter.post("/signup", authController.post_sign_up_form);
 
-// GET sign in form
+// Route to display the login form
 authRouter.get("/login", authController.get_sign_in_form);
 
-// POST sign in
+// Route to handle login form submission
 authRouter.post("/login", authController.post_sign_in_form);
 
-// GET logout
+// Route to handle user logout
 authRouter.get("/logout", authController.get_logout);
 
 module.exports = authRouter;
