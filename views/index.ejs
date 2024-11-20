@@ -3,7 +3,37 @@
   <!-- head partial -->
   <%- include("partials/head.ejs") %>
   <!-- head partial above do not edit -->
-  <body>
+  <body class="bg-gray-50">
+    <!-- APP BODY -->
+    <section class="bg-gray-50 dark:bg-gray-900 my-6">
+      <div
+        class="max-w-screen-xl px-4 py-16 mx-auto text-center sm:px-6 lg:px-8"
+      >
+        <h1
+          class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
+        >
+          Upload, Share, and Store Files Effortlessly
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+          Experience seamless file management with our easy-to-use platform.
+          Securely upload, organize, and share your documents, images, and
+          videos in seconds.
+        </p>
+        <p class="mt-8 text-lg text-gray-600 dark:text-gray-300">
+          Start your journey to hassle-free file handling today!
+        </p>
+        <div class="mt-10">
+          <a
+            href="<%= user ? '/dashboard' : '/login' %>"
+            class="px-8 py-3 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+          >
+            Get Started Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP BODY ABOVE -->
     <%- include("partials/nav.ejs") %>
     <!-- FOOTER BELOW -->
     <%- include("partials/footer.ejs") %>

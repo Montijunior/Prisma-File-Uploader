@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head.ejs") %>
+  <body class="bg-gray-50">
+    <%- include("partials/nav.ejs") %>
+    <!-- NAV ABOVE -->
+
+    <!-- APP BODY -->
+    <section class="p-6 my-10">
+      <% if (user.name === null || user.name === "null" || user.name === "") {%>
+      <!--  -->
+      <form
+        action="/dashboard"
+        method="post"
+        class="max-w-sm mx-auto p-6 my-5 bg-white shadow-lg rounded border border-slate-300"
+      >
+        <label>
+          <span class="block text-sm font-medium my-1 text-slate-600"
+            >Your name</span
+          >
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            class="block w-full py-2 px-3 my-2 bg-slate-50 text-slate-600 font-medium rounded-lg focus:outline-none active:outline-none ring-1 focus:ring-green-600 focus:border-blue-600"
+          />
+        </label>
+        <button
+          type="submit"
+          class="w-full py-2 px-3 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg"
+        >
+          Submit name
+        </button>
+      </form>
+      <% } else {%>
+      <!--  -->
+      <h1
+        class="text-3xl md:text-5xl leading-tight dark:text-white sm:text-4xl my-5 text-slate-900 text-center font-semibold"
+      >
+        Welcome back, <%= user.name %>
+      </h1>
+      <%}%>
+    </section>
+
+    <!-- APP BODY ABOVE -->
+
+    <!-- FOOTER BELOW -->
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
