@@ -35,7 +35,7 @@ app.use(express.json());
 
 // app routes
 
-// app.use(passport.initialize());
+app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   app.locals.user = req.user;
