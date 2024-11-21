@@ -1,8 +1,6 @@
 const PrismaClient = require("../configs/PrismaClient");
 const prisma = PrismaClient();
 const isAuthenticated = require("./IsAuthenticatedController");
-const upload = require("../configs/multer-config");
-const cloudinary = require("../configs/cloudinary-config");
 
 // Get request to open a folder
 exports.get_view_folder = [
@@ -14,7 +12,15 @@ exports.get_view_folder = [
       const folder = await prisma.folder.findUnique({
         where: { id: id },
       });
-      res.render("viewFolder", { title: folder.name + " Folder", folder });
+      // Load files in folder
+      const files = await prisma.file.findMany({
+        where: { folderId: id },
+      });
+      res.render("viewFolder", {
+        title: folder.name + " Folder",
+        folder,
+        files,
+      });
     } catch (error) {
       console.log(error.msg);
     }
