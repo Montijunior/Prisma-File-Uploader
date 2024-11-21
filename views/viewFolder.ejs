@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="bg-gray-50">
+    <%- include("./partials/nav.ejs") %>
+    <!-- NAV ABOVE -->
+
+    <!-- APP BODY -->
+    <section class="p-6 my-10">
+      <h1 class="text-3xl text-center font-bold text-slate-700 mt-4 mb-6">
+        <%= title %>
+        <br />
+        <span class="text-xl"> Created: <%= folder.createdAt %></span>
+      </h1>
+    </section>
+
+    <!-- APP BODY ABOVE -->
+
+    <!-- FOOTER BELOW -->
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
