@@ -4,7 +4,7 @@ const path = require("path");
 // Set up storage engine
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Set the directory for storing uploaded files
+    cb(null, "./public/data/uploads"); // Set the directory for storing uploaded files
   },
   filename: function (req, file, cb) {
     cb(
