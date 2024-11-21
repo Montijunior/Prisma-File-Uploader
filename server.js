@@ -10,6 +10,7 @@ const passport = require("./configs/passport");
 const IndexRoutes = require("./routes/IndexRoutes");
 const AuthRoutes = require("./routes/AuthRoutes");
 const DashboardRoutes = require("./routes/DashboardRoutes");
+const FolderRoutes = require("./routes/FolderRoutes");
 const cors = require("cors");
 const app = express();
 
@@ -40,13 +41,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   app.locals.user = req.user;
-  console.log(req.user);
+  // console.log(req.user);
   next();
 });
 
 app.use("/", AuthRoutes);
 app.use("/", IndexRoutes);
 app.use("/", DashboardRoutes);
+app.use("/folder", FolderRoutes);
 
 app.listen(3000, () => {
   console.log("Server running on port", process.env.PORT);

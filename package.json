@@ -5,7 +5,8 @@
   "private": "true",
   "scripts": {
     "start": "node --watch server.js",
-    "tailwind": "npx tailwind -i ./public/styles/input.css -o ./public/styles/output.css --watch "
+    "tailwind": "npx tailwind -i ./public/styles/input.css -o ./public/styles/output.css --watch ",
+    "manual_db": "node manual-db-test.js"
   },
   "keywords": [],
   "author": "",
