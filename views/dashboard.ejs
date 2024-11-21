@@ -6,9 +6,8 @@
     <!-- NAV ABOVE -->
 
     <!-- APP BODY -->
-    <section class="p-6 my-10">
-      <% if (user.name === null || user.name === "null" || user.name === "") {%>
-      <!--  -->
+    <section class="p-6 my-10 border-b border-slate-200">
+      <% if (!user.name) { %>
       <form
         action="/dashboard"
         method="post"
@@ -32,14 +31,92 @@
           Submit name
         </button>
       </form>
-      <% } else {%>
-      <!--  -->
+      <% } else { %>
       <h1
-        class="text-3xl md:text-5xl leading-tight dark:text-white sm:text-4xl my-5 text-slate-900 text-center font-semibold"
+        class="text-3xl font-poppins md:text-5xl leading-tight dark:text-white sm:text-4xl my-5 text-slate-900 text-center font-semibold"
       >
         Welcome back, <%= user.name %>
       </h1>
-      <%}%>
+      <% } %>
+    </section>
+
+    <section class="p-4">
+      <div class="w-full flex items-center justify-center -mt-7 mb-4">
+        <button
+          id="openModal"
+          class="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg focus:outline-none hover:bg-blue-600"
+        >
+          Create Folder
+        </button>
+      </div>
+      <!-- modal -->
+      <form
+        id="folderForm"
+        action="/folder/create"
+        method="post"
+        class="mt-4 mb-3 max-w-sm mx-auto bg-white px-4 py-3 rounded-lg shadow-lg hidden"
+      >
+        <label for="folderName" class="block text-sm font-medium text-gray-700"
+          >Folder Name</label
+        >
+        <input
+          type="text"
+          id="folderName"
+          placeholder="Enter folder name"
+          name="folderName"
+          class="mt-1 w-full border rounded-lg py-2 px-3 focus:outline-none bg-slate-50 focus:ring-blue-500 focus:border-blue-500 placeholder:text-slate-600 text-slate-600"
+          required
+        />
+
+        <!-- Buttons -->
+        <div class="grid grid-cols-2 gap-x-2 my-2">
+          <button
+            type="button"
+            id="cancel"
+            class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            id="submit"
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+
+      <h2 class="text-2xl text-gray-800 font-medium text-center ml-4">
+        <i class="fa-regular fa-folder-closed h-6 w-6"></i>
+        Your folders
+      </h2>
+      <!-- folder container -->
+      <div
+        class="max-w-xl mx-auto px-6 py-3 my-3 bg-white shadow-xl border-spacing-1 border-slate-300 border-dashed rounded-lg"
+      >
+        <% if (!folders || folders.length === 0) { %>
+        <h3 class="text-xl font-semibold text-slate-800 text-center">
+          You have no folders available.
+          <a
+            href="#"
+            class="text-blue-600 hover:text-blue-700"
+            id="create-folder"
+            >Create folder</a
+          >
+        </h3>
+        <% } else { %>
+        <ul>
+          <% folders.forEach((folder) => { %>
+          <li>
+            <a href="folder/<%= folder.id %>"
+              ><i class="fa-solid fa-folder"></i> <%= folder.name %></a
+            >
+          </li>
+          <% }) %>
+        </ul>
+        <% } %>
+      </div>
     </section>
 
     <!-- APP BODY ABOVE -->
