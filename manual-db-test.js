@@ -1,7 +1,7 @@
 const prisma = require("./configs/PrismaClient")();
 
 async function main() {
-  const folder = await prisma.folder.findMany({});
+  const folder = await prisma.file.findMany({});
   console.log(folder);
 }
 
