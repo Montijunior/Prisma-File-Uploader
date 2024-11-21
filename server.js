@@ -11,6 +11,7 @@ const IndexRoutes = require("./routes/IndexRoutes");
 const AuthRoutes = require("./routes/AuthRoutes");
 const DashboardRoutes = require("./routes/DashboardRoutes");
 const FolderRoutes = require("./routes/FolderRoutes");
+const UploadRoutes = require("./routes/UploadRoutes");
 const cors = require("cors");
 const app = express();
 
@@ -49,6 +50,7 @@ app.use("/", AuthRoutes);
 app.use("/", IndexRoutes);
 app.use("/", DashboardRoutes);
 app.use("/folder", FolderRoutes);
+app.use("/uploads", UploadRoutes);
 
 app.listen(3000, () => {
   console.log("Server running on port", process.env.PORT);
