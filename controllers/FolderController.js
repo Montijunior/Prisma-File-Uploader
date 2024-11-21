@@ -4,6 +4,24 @@ const isAuthenticated = require("./IsAuthenticatedController");
 const upload = require("../configs/multer-config");
 const cloudinary = require("../configs/cloudinary-config");
 
+// Get request to open a folder
+exports.get_view_folder = [
+  isAuthenticated,
+  async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const folder = await prisma.folder.findUnique({
+        where: { id: id },
+      });
+      console.log(folder);
+      res.render("viewFolder", { title: folder.name + " Folder", folder });
+    } catch (error) {
+      console.log(error.msg);
+    }
+  },
+];
+
 // Post request to create a new folder
 exports.post_create_folder = [
   isAuthenticated,
