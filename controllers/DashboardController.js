@@ -49,7 +49,7 @@ exports.post_dashboard_name_insert = [
           name: name,
         },
       });
-      res.render("/dashboard", { title: "Dashboard", user: req.user, folders });
+      res.render("dashboard", { title: "Dashboard", user: req.user, folders });
     } catch (error) {
       res.json({ msg: "Error occur while fetching data" });
       console.error(error.message);
